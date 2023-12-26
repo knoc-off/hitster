@@ -1,4 +1,17 @@
+
+
+
 function hit() {
+
+    # check if environment is set
+    if [ -z "$HITSTER_COUNTRYCODE" ]
+    then
+        echo "HITSTER_COUNTRYCODE is unset"
+        echo "Please set HITSTER_COUNTRYCODE to your country code"
+        echo "Example: export HITSTER_COUNTRYCODE=de"
+        exit
+    fi
+
 
     ran=$((RANDOM%350)) # needs tweaking.
     ran=$(printf "%05d" $ran)
@@ -23,7 +36,9 @@ function hit() {
     clear
 
     # can change url
-    qr "https://www.hitstergame.com/de/$ran"
+    qr "https://www.hitstergame.com/$HITSTER_COUNTRYCODE/$ran"
+
+    echo "$ran"
 }
 
 qr () {
@@ -44,3 +59,4 @@ qr () {
 }
 
 
+hit
