@@ -1,24 +1,11 @@
+#/usr/bin/env nix-shell
+#nix-shell -i bash -p jq qrencode
+
 #/usr/bin/env bash
 
 function hit() {
 
-    # check if environment is set
-    if [ -z "$HITSTER_COUNTRYCODE" ]
-    then
-        echo "HITSTER_COUNTRYCODE is unset"
-        echo "Please set HITSTER_COUNTRYCODE to your country code"
-        echo "Example: export HITSTER_COUNTRYCODE=de"
-        exit
-    fi
-
-
-    # based on the country code,
-    # us jq, to get the field url from the json under the country code
-    URL=$(jq -r ".countryCode.$HITSTER_COUNTRYCODE.url" countries.json)
-    MAXRANGE=$(jq -r ".countryCode.$HITSTER_COUNTRYCODE.max" countries.json)
-
-
-    ran=$((RANDOM%350)) # needs tweaking.
+    ran=$((RANDOM%$MAXRANGE)) # needs tweaking.
     ran=$(printf "%05d" $ran)
 
     if [ -f numbers.txt ]
@@ -41,32 +28,45 @@ function hit() {
 
     clear
 
-    # can change url
-    # For america, theres a strange url:
-    qr "$URL$ran"
-    #qr "https://www.hitstergame.com/$HITSTER_COUNTRYCODE/$ran"
-
+    echo "$URL$ran" | qrencode -l H -t UTF8
     echo "$URL$ran"
-    #echo "https://www.hitstergame.com/$HITSTER_COUNTRYCODE/$ran"
 }
 
-qr () {
-  if [[ $1 == "--share" ]]; then
-    declare -f qr | qrencode -l H -t UTF8;
-    return
-  fi
+function init() {
+    # check if environment is set
+    if [ -z "$HITSTER_COUNTRYCODE" ]
+    then
+        # put country codes into an array
+        codes=($(jq -r '.countryCode | keys[]' countries.json))
+        #jq -r '.countryCode | keys[]' countries.json
+        # print out the country codes and an index next to them
+        for i in "${!codes[@]}"; do
+            echo "$i ${codes[$i]}"
+        done
 
-  local S
-  if [[ "$#" == 0 ]]; then
-    IFS= read -r S
-    set -- "$S"
-  fi
+        # ask for input
+        read -p "Enter a number: " input
 
-  sanitized_input="$*"
+        # check if input is a number
+        if ! [[ "$input" =~ ^[0-9]+$ ]]
+        then
+            echo "Not a number"
+            hit
+            return
+        fi
 
-  echo "${sanitized_input}" | qrencode -l H -t UTF8
+        export HITSTER_COUNTRYCODE=${codes[$input]}
+    fi
+
+
+    # based on the country code,
+    URL=$(jq -r ".countryCode.$HITSTER_COUNTRYCODE.url" countries.json)
+    MAXRANGE=$(jq -r ".countryCode.$HITSTER_COUNTRYCODE.max" countries.json)
 }
+
+
+init
 
 # loop forever wait for read
-while true; do read -n1; hit; done
+while true; do hit; read -n1; done
 

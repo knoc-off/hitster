@@ -1,20 +1,96 @@
 {
-  "countryCode": {
-    "us": {
-      "url": "https://www.hitstergame.com/us/aaab0001/",
-      "max": 350
-    },
-    "uk": {
-      "url": "https://www.hitstergame.com/uk/aaab0001/",
-      "max": 350
-    },
-    "fr": {
-      "url": "https://www.hitstergame.com/fr/",
-      "max": 350
-    },
-    "de": {
-      "url": "https://www.hitstergame.com/de/",
-      "max": 350
+    "countryCode": {
+        "us": {
+            "url": "https://www.hitstergame.com/us/aaab0001/",
+            "max": 350
+        },
+        "au": {
+            "url": "https://www.hitstergame.com/au/aaab0001/",
+            "max": 350
+        },
+        "uk": {
+            "url": "https://www.hitstergame.com/uk/aaab0001/",
+            "max": 350
+        },
+        "fr": {
+            "url": "https://www.hitstergame.com/fr/",
+            "max": 350
+        },
+        "de": {
+            "url": "https://www.hitstergame.com/de/",
+            "max": 350
+        },
+        "be": {
+            "url": "https://www.hitstergame.com/be/aaab0001/",
+            "max": 350
+        },
+        "ca": {
+            "url": "https://www.hitstergame.com/ca/aaab0001/",
+            "max": 350
+        },
+        "cz": {
+            "url": "https://www.hitstergame.com/cz/aaab0001/",
+            "max": 350
+        },
+        "cl": {
+            "url": "https://www.hitstergame.com/cl/aaab0001/",
+            "max": 350
+        },
+        "es": {
+            "url": "https://www.hitstergame.com/es/aaab0001/",
+            "max": 350
+        },
+        "ie": {
+            "url": "https://www.hitstergame.com/ie/aaab0001/",
+            "max": 350
+        },
+        "it": {
+            "url": "https://www.hitstergame.com/it/aaab0001/",
+            "max": 350
+        },
+        "hu": {
+            "url": "https://www.hitstergame.com/hu/aaab0001/",
+            "max": 350
+        },
+        "mx": {
+            "url": "https://www.hitstergame.com/mx/aaab0001/",
+            "max": 350
+        },
+        "nl": {
+            "url": "https://www.hitstergame.com/nl/aaab0001/",
+            "max": 350
+        },
+        "nz": {
+            "url": "https://www.hitstergame.com/nz/aaab0001/",
+            "max": 350
+        },
+        "at": {
+            "url": "https://www.hitstergame.com/at/aaab0001/",
+            "max": 350
+        },
+        "pl": {
+            "url": "https://www.hitstergame.com/pl/aaab0001/",
+            "max": 350
+        },
+        "pt": {
+            "url": "https://www.hitstergame.com/pt/aaab0001/",
+            "max": 350
+        },
+        "ro": {
+            "url": "https://www.hitstergame.com/ro/aaab0001/",
+            "max": 350
+        },
+        "ch": {
+            "url": "https://www.hitstergame.com/ch/aaab0001/",
+            "max": 350
+        },
+        "sk": {
+            "url": "https://www.hitstergame.com/sk/aaab0001/",
+            "max": 350
+        },
+        "gr": {
+            "url": "https://www.hitstergame.com/gr/aaab0001/",
+            "max": 350
+        }
     }
-  }
 }
