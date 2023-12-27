@@ -1,16 +1,20 @@
 {
   "countryCode": {
     "us": {
-      "url": "https://www.hitstergame.com/us/aaab0001/"
+      "url": "https://www.hitstergame.com/us/aaab0001/",
+      "max": 350
     },
     "uk": {
-      "url": "https://example.com/uk"
+      "url": "https://www.hitstergame.com/uk/aaab0001/",
+      "max": 350
     },
     "fr": {
-      "url": "https://www.hitstergame.com/fr/"
+      "url": "https://www.hitstergame.com/fr/",
+      "max": 350
     },
     "de": {
-      "url": "https://www.hitstergame.com/de/"
+      "url": "https://www.hitstergame.com/de/",
+      "max": 350
     }
   }
 }

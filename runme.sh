@@ -15,6 +15,7 @@ function hit() {
     # based on the country code,
     # us jq, to get the field url from the json under the country code
     URL=$(jq -r ".countryCode.$HITSTER_COUNTRYCODE.url" countries.json)
+    MAXRANGE=$(jq -r ".countryCode.$HITSTER_COUNTRYCODE.max" countries.json)
 
 
     ran=$((RANDOM%350)) # needs tweaking.
