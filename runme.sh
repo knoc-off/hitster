@@ -1,6 +1,5 @@
 #/usr/bin/env bash
 
-
 function hit() {
 
     # check if environment is set
@@ -11,6 +10,11 @@ function hit() {
         echo "Example: export HITSTER_COUNTRYCODE=de"
         exit
     fi
+
+
+    # based on the country code,
+    # us jq, to get the field url from the json under the country code
+    URL=$(jq -r ".countryCode.$HITSTER_COUNTRYCODE.url" countries.json)
 
 
     ran=$((RANDOM%350)) # needs tweaking.
@@ -36,9 +40,12 @@ function hit() {
     clear
 
     # can change url
-    qr "https://www.hitstergame.com/$HITSTER_COUNTRYCODE/$ran"
+    # For america, theres a strange url:
+    qr "$URL$ran"
+    #qr "https://www.hitstergame.com/$HITSTER_COUNTRYCODE/$ran"
 
-    echo "$ran"
+    echo "$URL$ran"
+    #echo "https://www.hitstergame.com/$HITSTER_COUNTRYCODE/$ran"
 }
 
 qr () {
