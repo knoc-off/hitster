@@ -33,6 +33,7 @@ function hit() {
     then
         echo "Number already in use, try again"
         hit
+        return
     fi
 
     echo $ran >> numbers.txt
@@ -65,5 +66,6 @@ qr () {
   echo "${sanitized_input}" | qrencode -l H -t UTF8
 }
 
+# loop forever wait for read
+while true; do read -n1; hit; done
 
-hit

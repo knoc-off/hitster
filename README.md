@@ -1,6 +1,8 @@
 # Dependencies
 - qrencode
+- jq
 - bash
+
 
 
 # ~

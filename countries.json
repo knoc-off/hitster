@@ -1,0 +1,16 @@
+{
+  "countryCode": {
+    "us": {
+      "url": "https://www.hitstergame.com/us/aaab0001/"
+    },
+    "uk": {
+      "url": "https://example.com/uk"
+    },
+    "fr": {
+      "url": "https://www.hitstergame.com/fr/"
+    },
+    "de": {
+      "url": "https://www.hitstergame.com/de/"
+    }
+  }
+}
